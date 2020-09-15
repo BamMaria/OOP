@@ -14,6 +14,9 @@ public class Points {
     public static Point divide (Point X,Point Y){
         return new Point (X.getX()/Y.getX(), X.getY()/Y.getY(), X.getZ()/Y.getZ());
     }
+    public static Point enlarge(Point point ,double value ){
+        return new Point (point.getX()*value, point.getY()*value, point.getZ()*value);
+    }
 }
 
 
