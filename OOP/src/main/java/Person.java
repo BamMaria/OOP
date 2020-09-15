@@ -2,6 +2,13 @@ public class Person {
     private String frstName ;
     private String lastName;
     private int passportId ;
+    public Person () {
+        frstName="Имя";
+        lastName="Фамилия";
+        passportId=0;
+
+
+    }
 
     public String getFrstName() {
         return frstName;
