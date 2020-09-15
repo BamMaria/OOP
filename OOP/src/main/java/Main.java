@@ -17,8 +17,10 @@ public class Main {
         result=Points. subtract(tochka,tochka2);
         result=Points.multiply (tochka,tochka2);
         result=Points.divide(tochka,tochka2);
-        result=Points.enlarge(tochka,6);
-        System.out.println(1);
+        result=Points.enlarge(tochka,1);
+
+
+        System.out.println(tochka.length());
 
 
 
