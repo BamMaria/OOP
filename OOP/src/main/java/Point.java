@@ -15,6 +15,7 @@ public class Point {
         return sqrt(X*X+Y*Y+Z*Z);
     }
 
+
     public double getX() {
         return X;
     }
