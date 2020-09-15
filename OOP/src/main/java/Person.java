@@ -6,8 +6,15 @@ public class Person {
         frstName="Имя";
         lastName="Фамилия";
         passportId=0;
-
-
+    }
+    public Person (String frstName,String lastName,int passportId){
+        this.frstName=frstName;
+        this.lastName=lastName;
+        this.passportId=passportId;
+    }
+    public Person (String frstName,String lastName) {
+        this.frstName=frstName;
+        this.lastName=lastName;
     }
 
     public String getFrstName() {
