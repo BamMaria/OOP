@@ -24,6 +24,9 @@ public class Person {
     public void setFrstName(String frstName) {
         this.frstName = frstName;
     }
+    public Person ( int passportId){
+        this.passportId=passportId;
+    }
 
     public String getLastName() {
         return lastName;
