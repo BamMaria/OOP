@@ -1,3 +1,5 @@
+import static java.lang.Math.sqrt;
+
 public class Point {
     private final double X;
     private final double Y;
@@ -7,6 +9,10 @@ public class Point {
         this.Y=y;
         this.Z=z;
 
+    }
+
+    public  double length(){
+        return sqrt(X*X+Y*Y+Z*Z);
     }
 
     public double getX() {
