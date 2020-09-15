@@ -18,9 +18,12 @@ public class Main {
         result=Points.multiply (tochka,tochka2);
         result=Points.divide(tochka,tochka2);
         result=Points.enlarge(tochka,1);
+        result=Points.opposite(tochka);
+        result=Points.inverse(tochka);
 
 
         System.out.println(tochka.length());
+
 
 
 
