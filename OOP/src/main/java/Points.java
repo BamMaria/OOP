@@ -17,6 +17,14 @@ public class Points {
     public static Point enlarge(Point point ,double value ){
         return new Point (point.getX()*value, point.getY()*value, point.getZ()*value);
     }
+    public static Point opposite(Point point ) {
+
+        return new Point(point.getX()*(-1), point.getY()*(-1), point.getZ()*(-1));
+    }
+    public static Point inverse(Point point ) {
+        return new Point (1/ point.getX() ,1/point.getY(),1/point.getZ());
+
+    }
 }
 
 
