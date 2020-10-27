@@ -18,5 +18,9 @@ public class Motion {
 
         Unicycle unicycle = new Unicycle();
         start(unicycle);
+        Cycle[] cysles = {new Unicycle(),
+                new Bicycle(), new Tricycle()};
+        ((Unicycle)cysles[0]).balance();
+        ((Bicycle)cysles[1]).balance();
     }
 }
