@@ -1,4 +1,4 @@
-package polimorphism;
+package additional_task;
 public class Unicycle extends Cycle {
     @Override
     public void ride(Direction key) {

@@ -1,4 +1,4 @@
-package polimorphism;
+package additional_task;
 
 public class Bicycle extends Cycle {
     @Override

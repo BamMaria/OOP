@@ -1,4 +1,4 @@
-package polimorphism;
+package additional_task;
 
 enum Direction {
     W_STRAIGHT, A_LEFT, S_BACK, D_RIGTH;

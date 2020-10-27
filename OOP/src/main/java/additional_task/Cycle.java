@@ -1,4 +1,4 @@
-package polimorphism;
+package additional_task;
 
 public class Cycle {
     public void ride(Direction key) {
