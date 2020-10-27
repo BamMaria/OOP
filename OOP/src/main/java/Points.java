@@ -25,6 +25,14 @@ public class Points {
         return new Point (1/ point.getX() ,1/point.getY(),1/point.getZ());
 
     }
+    //TODO WRITE VECTOR PRODUCT
+    public static Point vectorProduct(Point X,Point Y) {
+        return new Point (1,1,1);
+
+    }
+
+
+
 }
 
 
