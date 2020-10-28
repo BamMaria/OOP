@@ -1,4 +1,4 @@
-public class NamedPoint extends Point {
+public class NamedPoint extends Point implements Resettable {
     private String name;
 
     NamedPoint(double x, double y, double z) {
@@ -20,5 +20,9 @@ public class NamedPoint extends Point {
 
     String getName() {
         return name;
+    }
+    @Override
+    public void reset() {
+        name = "Absent";
     }
 }
