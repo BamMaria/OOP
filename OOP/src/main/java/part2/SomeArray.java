@@ -22,4 +22,11 @@ public class SomeArray {
         }
         return someArray;
     }
+    public static int[] createSomeArrayDownEven(int length) {
+        int[] someArray = new int[length];
+        for (int i = length - 1; i >= 0; i--) {
+            someArray[i] = 2 * (length - i);
+        }
+        return someArray;
+    }
 }

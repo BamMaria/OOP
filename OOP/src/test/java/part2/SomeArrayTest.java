@@ -32,4 +32,11 @@ public class SomeArrayTest {
             assertEquals(array[i - 1], i * 2 - 1, 0.001);
         }
     }
+    @Test
+    public void testCreateSomeArrayDownEven() {
+        int[] array = SomeArray.createSomeArrayDownEven(lengthArrayTest);
+        for (int i = lengthArrayTest - 1; i >= 0; i--) {
+            assertEquals(array[i], 2 * (lengthArrayTest - i), 0.001);
+        }
+    }
 }
