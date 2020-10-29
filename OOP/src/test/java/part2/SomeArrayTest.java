@@ -87,5 +87,13 @@ public class SomeArrayTest {
             assertEquals(number % v, 0, 0.001);
         }
     }
-
+    @Test
+    public void testCreateSomeArrayPrimeNumbers() {
+        var array = SomeArray.createSomeArrayPrimeNumbers(21);
+        for (double v : array) {
+            assertEquals(SomeArray.createSomeArrayOfDivers((int) v).length, 1, 0.0001);
+            System.out.println(v);
+        }
+    }
 }
+

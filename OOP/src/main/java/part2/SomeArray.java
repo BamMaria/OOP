@@ -112,4 +112,29 @@ public class SomeArray {
         someArray[length - 1] = number;
         return someArray;
     }
+    public static double[] createSomeArrayPrimeNumbers(int number) {
+        int dividers = 0, length = 0;
+        for (int i = 1; i < number; i++) {
+            for (int k = 1; k <= i; k++) {
+                if (i % k == 0)
+                    dividers++;
+            }
+            if (dividers <= 2) {
+                length++;
+            }
+        }
+        double[] someArray = new double[length];
+        int m = 0;
+        for (int i = 1; i < number; i++) {
+            for (int k = 1; k <= i; k++) {
+                if (i % k == 0)
+                    dividers++;
+            }
+            if (dividers <= 2) {
+                someArray[m] = i;
+                m++;
+            }
+        }
+        return someArray;
+    }
 }
