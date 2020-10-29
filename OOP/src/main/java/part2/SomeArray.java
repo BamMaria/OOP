@@ -65,4 +65,16 @@ public class SomeArray {
         }
         return new double[0];
     }
+    public static int[] createSomeArrayNaturalNumber(int length) {
+        int[] someArray = new int[length];
+        int num = 1;
+        for (int i = 0; i < length; i++) {
+            if (num % 3 == 0) {
+                num++;
+            }
+            someArray[i] = num;
+            num++;
+        }
+        return someArray;
+    }
 }

@@ -57,4 +57,11 @@ public class SomeArrayTest {
         double[] arrayOne = SomeArray.createSomeArraySquareEquation( 2, -8, 8);
         assertEquals(arrayOne[0], 2, 0.001);
     }
+    @Test
+    public void testCreateSomeArrayNaturalNumber() {
+        int[] array = SomeArray.createSomeArrayNaturalNumber(lengthArrayTest);
+        for (int i = 0; i < lengthArrayTest; i++) {
+            assertTrue(array[i] % 3 != 0);
+        }
+    }
 }
