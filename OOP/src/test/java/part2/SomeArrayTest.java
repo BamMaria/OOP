@@ -39,4 +39,9 @@ public class SomeArrayTest {
             assertEquals(array[i], 2 * (lengthArrayTest - i), 0.001);
         }
     }
+    @Test
+    public void testCreateSomeArrayFibonacci() {
+        int[] array = SomeArray.createSomeArrayFibonacci(lengthArrayTest);
+        assertEquals(array[lengthArrayTest - 1], 89, 0.001);
+    }
 }
