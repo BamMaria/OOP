@@ -102,5 +102,13 @@ public class SomeArrayTest {
             assertEquals(array[i], array[lengthArrayTest - i - 1], 0.001);
         }
     }
+    @Test
+    public void testOppositeSomeArray() {
+        double[] value = {1.2, 3.4, 5.4, 1.2};
+        double[] array = SomeArray.oppositeSomeArray(value);
+        for (double v : array) {
+            assertEquals(-v, -v, 0.001);
+        }
+    }
 }
 

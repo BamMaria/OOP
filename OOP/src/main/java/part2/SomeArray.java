@@ -148,4 +148,10 @@ public class SomeArray {
         }
         return someArray;
     }
+    public static double[] oppositeSomeArray(double[] someArray) {
+        for (int i = 0; i < someArray.length; i++) {
+            someArray[i] = -someArray[i];
+        }
+        return someArray;
+    }
 }
