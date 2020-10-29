@@ -13,4 +13,16 @@ public class SomeArrayTest {
         int[] array = SomeArray.createSomeArray1(lengthArrayTest);
         assertEquals(array.length, lengthArrayTest, 0.001);
     }
+    @Test
+    public void testCreateSomeArray2() {
+        int[] array = SomeArray.createSomeArray2(lengthArrayTest);
+        assertEquals(array[0], 2, 0.001);
+        for (int i = 0; i < lengthArrayTest; i++) {
+            if (i == 0 || i == lengthArrayTest - 1) {
+                assertEquals(array[i], 2, 0.001);
+            } else {
+                assertEquals(array[i], 1, 0.001);
+            }
+        }
+    }
 }
