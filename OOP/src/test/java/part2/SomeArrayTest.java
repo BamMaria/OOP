@@ -13,6 +13,7 @@ public class SomeArrayTest {
         int[] array = SomeArray.createSomeArray1(lengthArrayTest);
         assertEquals(array.length, lengthArrayTest, 0.001);
     }
+
     @Test
     public void testCreateSomeArray2() {
         int[] array = SomeArray.createSomeArray2(lengthArrayTest);
@@ -25,6 +26,7 @@ public class SomeArrayTest {
             }
         }
     }
+
     @Test
     public void testCreateSomeArrayRisingOdd() {
         int[] array = SomeArray.createSomeArrayRisingOdd(lengthArrayTest);
@@ -32,6 +34,7 @@ public class SomeArrayTest {
             assertEquals(array[i - 1], i * 2 - 1, 0.001);
         }
     }
+
     @Test
     public void testCreateSomeArrayDownEven() {
         int[] array = SomeArray.createSomeArrayDownEven(lengthArrayTest);
@@ -39,11 +42,13 @@ public class SomeArrayTest {
             assertEquals(array[i], 2 * (lengthArrayTest - i), 0.001);
         }
     }
+
     @Test
     public void testCreateSomeArrayFibonacci() {
         int[] array = SomeArray.createSomeArrayFibonacci(lengthArrayTest);
         assertEquals(array[lengthArrayTest - 1], 89, 0.001);
     }
+
     @Test
     public void testCreateSomeArraySquareIndex() {
         int[] array = SomeArray.createSomeArraySquareIndex(lengthArrayTest);
@@ -54,10 +59,11 @@ public class SomeArrayTest {
     public void testCreateSomeArraySquareEquation() {
         double[] array = SomeArray.createSomeArraySquareEquation(3, -11, 10);
         assertEquals(array[0], 2, 0.001);
-        assertEquals(array[1], 5./3, 0.001);
-        double[] arrayOne = SomeArray.createSomeArraySquareEquation( 2, -8, 8);
+        assertEquals(array[1], 5. / 3, 0.001);
+        double[] arrayOne = SomeArray.createSomeArraySquareEquation(2, -8, 8);
         assertEquals(arrayOne[0], 2, 0.001);
     }
+
     @Test
     public void testCreateSomeArrayNaturalNumber() {
         int[] array = SomeArray.createSomeArrayNaturalNumber(lengthArrayTest);
@@ -65,6 +71,7 @@ public class SomeArrayTest {
             assertTrue(array[i] % 3 != 0);
         }
     }
+
     @Test
     public void createSomeArrayArithmeticProgression() {
         double[] array = SomeArray.createSomeArrayArithmeticProgression(lengthArrayTest, 3, 13);
@@ -72,6 +79,7 @@ public class SomeArrayTest {
             assertEquals(array[i] - array[i - 1], 13, 0.001);
         }
     }
+
     @Test
     public void testCreateSomeArrayGeometricProgression() {
         double[] array = SomeArray.createSomeArrayGeometricProgression(lengthArrayTest, 3, 13);
@@ -79,6 +87,7 @@ public class SomeArrayTest {
             assertEquals(array[i] / array[i - 1], 13, 0.001);
         }
     }
+
     @Test
     public void testCreateSomeArrayOfDivers() {
         int number = 15;
@@ -87,6 +96,7 @@ public class SomeArrayTest {
             assertEquals(number % v, 0, 0.001);
         }
     }
+
     @Test
     public void testCreateSomeArrayPrimeNumbers() {
         var array = SomeArray.createSomeArrayPrimeNumbers(21);
@@ -95,6 +105,7 @@ public class SomeArrayTest {
             System.out.println(v);
         }
     }
+
     @Test
     public void testCreateSomeArraySymmetric() {
         int[] array = SomeArray.createSomeArraySymmetric(lengthArrayTest);
@@ -102,13 +113,16 @@ public class SomeArrayTest {
             assertEquals(array[i], array[lengthArrayTest - i - 1], 0.001);
         }
     }
+
     @Test
     public void testOppositeSomeArray() {
-        double[] value = {1.2, 3.4, 5.4, 1.2};
-        double[] array = SomeArray.oppositeSomeArray(value);
-        for (double v : array) {
-            assertEquals(-v, -v, 0.001);
-        }
+        double[] array = new double[]{1., 3., 4., 5};
+        SomeArray.oppositeSomeArray(array);
+        assertEquals(array[0], -1, 0.001);
+        assertEquals(array[1], -3, 0.001);
+        assertEquals(array[2], -4, 0.001);
+        assertEquals(array[3], -5, 0.001);
+
     }
 }
 
