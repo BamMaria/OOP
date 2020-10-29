@@ -72,4 +72,12 @@ public class SomeArrayTest {
             assertEquals(array[i] - array[i - 1], 13, 0.001);
         }
     }
+    @Test
+    public void testCreateSomeArrayGeometricProgression() {
+        double[] array = SomeArray.createSomeArrayGeometricProgression(lengthArrayTest, 3, 13);
+        for (int i = 1; i < lengthArrayTest; i++) {
+            assertEquals(array[i] / array[i - 1], 13, 0.001);
+        }
+    }
+
 }
