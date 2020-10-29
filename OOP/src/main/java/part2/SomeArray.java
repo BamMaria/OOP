@@ -93,4 +93,23 @@ public class SomeArray {
         }
         return someArray;
     }
+    public static double[] createSomeArrayOfDivers(int number) {
+
+        int length = 1;
+        for (int i = 1; i <= number / 2; i++) {
+            if (number % i == 0) {
+                length++;
+            }
+        }
+        double[] someArray = new double[length];
+        int k = 0;
+        for (int i = 1; i <= number / 2; i++) {
+            if (number % i == 0) {
+                someArray[k] = i;
+                k++;
+            }
+        }
+        someArray[length - 1] = number;
+        return someArray;
+    }
 }

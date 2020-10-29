@@ -79,5 +79,13 @@ public class SomeArrayTest {
             assertEquals(array[i] / array[i - 1], 13, 0.001);
         }
     }
+    @Test
+    public void testCreateSomeArrayOfDivers() {
+        int number = 15;
+        double[] array = SomeArray.createSomeArrayOfDivers(15);
+        for (double v : array) {
+            assertEquals(number % v, 0, 0.001);
+        }
+    }
 
 }
