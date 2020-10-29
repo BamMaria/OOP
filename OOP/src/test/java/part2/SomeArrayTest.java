@@ -49,6 +49,7 @@ public class SomeArrayTest {
         int[] array = SomeArray.createSomeArraySquareIndex(lengthArrayTest);
         assertEquals(array[lengthArrayTest - 1], 81, 0.001);
     }
+
     @Test
     public void testCreateSomeArraySquareEquation() {
         double[] array = SomeArray.createSomeArraySquareEquation(3, -11, 10);
@@ -62,6 +63,13 @@ public class SomeArrayTest {
         int[] array = SomeArray.createSomeArrayNaturalNumber(lengthArrayTest);
         for (int i = 0; i < lengthArrayTest; i++) {
             assertTrue(array[i] % 3 != 0);
+        }
+    }
+    @Test
+    public void createSomeArrayArithmeticProgression() {
+        double[] array = SomeArray.createSomeArrayArithmeticProgression(lengthArrayTest, 3, 13);
+        for (int i = 1; i < lengthArrayTest; i++) {
+            assertEquals(array[i] - array[i - 1], 13, 0.001);
         }
     }
 }
