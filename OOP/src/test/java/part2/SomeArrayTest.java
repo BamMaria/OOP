@@ -49,4 +49,12 @@ public class SomeArrayTest {
         int[] array = SomeArray.createSomeArraySquareIndex(lengthArrayTest);
         assertEquals(array[lengthArrayTest - 1], 81, 0.001);
     }
+    @Test
+    public void testCreateSomeArraySquareEquation() {
+        double[] array = SomeArray.createSomeArraySquareEquation(3, -11, 10);
+        assertEquals(array[0], 2, 0.001);
+        assertEquals(array[1], 5./3, 0.001);
+        double[] arrayOne = SomeArray.createSomeArraySquareEquation( 2, -8, 8);
+        assertEquals(arrayOne[0], 2, 0.001);
+    }
 }

@@ -47,4 +47,22 @@ public class SomeArray {
         }
         return someArray;
     }
+    public static double[] createSomeArraySquareEquation(double a, double b, double c) {
+        double v = b * b - 4 * a * c;
+        if (v > 0) {
+            double x1 = (-b + Math.sqrt(v)) / (2 * a);
+            double x2 = (-b - Math.sqrt(v)) / (2 * a);
+            double[] someArray = new double[2];
+            someArray[0] = x1;
+            someArray[1] = x2;
+            return someArray;
+        }
+        if (v == 0) {
+            double x = (-b) / (2 * a);
+            double[] someArray = new double[1];
+            someArray[0] = x;
+            return someArray;
+        }
+        return new double[0];
+    }
 }
