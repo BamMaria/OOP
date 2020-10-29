@@ -15,4 +15,11 @@ public class SomeArray {
         }
         return someArray;
     }
+    public static int[] createSomeArrayRisingOdd(int length) {
+        int[] someArray = new int[length];
+        for (int i = 1; i <= length; i++) {
+            someArray[i - 1] = 2 * i - 1;
+        }
+        return someArray;
+    }
 }

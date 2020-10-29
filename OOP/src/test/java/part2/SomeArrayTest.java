@@ -25,4 +25,11 @@ public class SomeArrayTest {
             }
         }
     }
+    @Test
+    public void testCreateSomeArrayRisingOdd() {
+        int[] array = SomeArray.createSomeArrayRisingOdd(lengthArrayTest);
+        for (int i = 1; i <= lengthArrayTest; i++) {
+            assertEquals(array[i - 1], i * 2 - 1, 0.001);
+        }
+    }
 }
