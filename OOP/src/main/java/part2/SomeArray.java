@@ -40,4 +40,11 @@ public class SomeArray {
         }
         return someArray;
     }
+    public static int[] createSomeArraySquareIndex(int length) {
+        int[] someArray = new int[length];
+        for (int i = 0; i < length; i++) {
+            someArray[i] = i * i;
+        }
+        return someArray;
+    }
 }

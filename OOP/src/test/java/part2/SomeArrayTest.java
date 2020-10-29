@@ -44,4 +44,9 @@ public class SomeArrayTest {
         int[] array = SomeArray.createSomeArrayFibonacci(lengthArrayTest);
         assertEquals(array[lengthArrayTest - 1], 89, 0.001);
     }
+    @Test
+    public void testCreateSomeArraySquareIndex() {
+        int[] array = SomeArray.createSomeArraySquareIndex(lengthArrayTest);
+        assertEquals(array[lengthArrayTest - 1], 81, 0.001);
+    }
 }
