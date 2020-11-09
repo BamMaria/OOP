@@ -193,5 +193,16 @@ public class SomeArray {
         }
         return count;
     }
+    public static Integer findMaxNumberInSomeArray(Integer[] someArray) {
+        if (someArray.length == 0)
+            return null;
+        Integer max = someArray[0];
+        for (int i = 1; i < someArray.length; i++) {
+            if (someArray[i] > max) {
+                max = someArray[i];
+            }
+        }
+        return max;
+    }
 
 }
