@@ -162,5 +162,10 @@ public class SomeArrayTest {
         assertTrue(SomeArray.checkNumDevidersInSomeArray(new int[]{2, 4, 6, 3}));
         assertFalse(SomeArray.checkNumDevidersInSomeArray(new int[]{2, 4, 6, 9, 9, 3}));
     }
+    @Test
+    public void testFindMostPopularNumInSomeArray() {
+        assertEquals(SomeArray.findMostPopularNumInSomeArray(new int[]{1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 6}), 2);
+        assertEquals(SomeArray.findMostPopularNumInSomeArray(new int[]{1, 1, 2, 2, 2, 3, 3, 3, 4, 5, 6, 1}), 1);
+    }
 }
 
