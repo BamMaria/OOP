@@ -157,5 +157,10 @@ public class SomeArrayTest {
         double[] arrayTwo= new double[]{2., 10., 10., 10., 5., 18., 1., 3.};
         assertEquals(SomeArray.sumEvenIndexNumbersInSomeArray(arrayTwo), 18., 0.00001);
     }
+    @Test
+    public void testCheckNumDevidersInSomeArray() {
+        assertTrue(SomeArray.checkNumDevidersInSomeArray(new int[]{2, 4, 6, 3}));
+        assertFalse(SomeArray.checkNumDevidersInSomeArray(new int[]{2, 4, 6, 9, 9, 3}));
+    }
 }
 
