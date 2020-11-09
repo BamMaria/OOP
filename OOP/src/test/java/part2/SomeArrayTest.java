@@ -131,5 +131,11 @@ public class SomeArrayTest {
         assertTrue(SomeArray.checkNumberInSomeArray(array, 3));
         assertFalse(SomeArray.checkNumberInSomeArray(array, 50));
     }
+    @Test
+    public void testCheckNullInSomeArray()
+    {
+        assertTrue(SomeArray.checkNullInSomeArray(new Integer[]{1, 2, 3, 4, null}));
+        assertFalse(SomeArray.checkNullInSomeArray(new Integer[]{1, 2, 3, 4}));
+    }
 }
 
