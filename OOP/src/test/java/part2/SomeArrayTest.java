@@ -137,5 +137,12 @@ public class SomeArrayTest {
         assertTrue(SomeArray.checkNullInSomeArray(new Integer[]{1, 2, 3, 4, null}));
         assertFalse(SomeArray.checkNullInSomeArray(new Integer[]{1, 2, 3, 4}));
     }
+    @Test
+    public void testCountEvenNumbersInSomeArray() {
+        int[] array = new int[]{1, 2, 3, 4, 5, 6, 7, 8};
+        assertEquals(SomeArray.countEvenNumbersInSomeArray(array), 4, 0.00001);
+        int[] arrayTwo = new int[]{5, 13, 51, 11, 5, 1, 9, 3, 61};
+        assertEquals(SomeArray.countEvenNumbersInSomeArray(arrayTwo), 0, 0.00001);
+    }
 }
 
