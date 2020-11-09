@@ -4,6 +4,7 @@ public class SomeArray {
     public static int[] createSomeArray1(int length) {
         return new int[length];
     }
+
     public static int[] createSomeArray2(int length) {
         int[] someArray = new int[length];
         for (int i = 0; i < length; i++) {
@@ -15,6 +16,7 @@ public class SomeArray {
         }
         return someArray;
     }
+
     public static int[] createSomeArrayRisingOdd(int length) {
         int[] someArray = new int[length];
         for (int i = 1; i <= length; i++) {
@@ -22,6 +24,7 @@ public class SomeArray {
         }
         return someArray;
     }
+
     public static int[] createSomeArrayDownEven(int length) {
         int[] someArray = new int[length];
         for (int i = length - 1; i >= 0; i--) {
@@ -29,6 +32,7 @@ public class SomeArray {
         }
         return someArray;
     }
+
     public static int[] createSomeArrayFibonacci(int length) {
         int[] someArray = new int[length];
         int a = 0, b = 1, next;
@@ -40,6 +44,7 @@ public class SomeArray {
         }
         return someArray;
     }
+
     public static int[] createSomeArraySquareIndex(int length) {
         int[] someArray = new int[length];
         for (int i = 0; i < length; i++) {
@@ -47,6 +52,7 @@ public class SomeArray {
         }
         return someArray;
     }
+
     public static double[] createSomeArraySquareEquation(double a, double b, double c) {
         double v = b * b - 4 * a * c;
         if (v > 0) {
@@ -65,6 +71,7 @@ public class SomeArray {
         }
         return new double[0];
     }
+
     public static int[] createSomeArrayNaturalNumber(int length) {
         int[] someArray = new int[length];
         int num = 1;
@@ -77,6 +84,7 @@ public class SomeArray {
         }
         return someArray;
     }
+
     public static double[] createSomeArrayArithmeticProgression(int length, int firstElement, int difference) {
         double[] someArray = new double[length];
         someArray[0] = firstElement;
@@ -85,6 +93,7 @@ public class SomeArray {
         }
         return someArray;
     }
+
     public static double[] createSomeArrayGeometricProgression(int length, int firstElement, int factor) {
         double[] someArray = new double[length];
         someArray[0] = firstElement;
@@ -93,6 +102,7 @@ public class SomeArray {
         }
         return someArray;
     }
+
     public static double[] createSomeArrayOfDivers(int number) {
 
         int length = 1;
@@ -112,6 +122,7 @@ public class SomeArray {
         someArray[length - 1] = number;
         return someArray;
     }
+
     public static double[] createSomeArrayPrimeNumbers(int number) {
         int dividers = 0, length = 0;
         for (int i = 1; i < number; i++) {
@@ -137,6 +148,7 @@ public class SomeArray {
         }
         return someArray;
     }
+
     public static int[] createSomeArraySymmetric(int length) {
         int[] someArray = new int[length];
         for (int i = 1; i < length / 2 + 1; i++) {
@@ -148,10 +160,20 @@ public class SomeArray {
         }
         return someArray;
     }
-    public static double[] oppositeSomeArray(double[] someArray) {
+
+    public static void oppositeSomeArray(double[] someArray) {
         for (int i = 0; i < someArray.length; i++) {
             someArray[i] = -someArray[i];
         }
-        return someArray;
+
+    }
+
+    public static boolean checkNumberInSomeArray(double[] someArray, int number) {
+        for (double value : someArray) {
+            if (value == number) {
+                return true;
+            }
+        }
+        return false;
     }
 }
