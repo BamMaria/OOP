@@ -204,5 +204,12 @@ public class SomeArray {
         }
         return max;
     }
+    public static double sumEvenIndexNumbersInSomeArray(double[] someArray) {
+        int sum = 0;
+        for (int i = 0; i < someArray.length; i += 2) {
+            sum += someArray[i];
+        }
+        return sum;
+    }
 
 }
