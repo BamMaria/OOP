@@ -265,4 +265,12 @@ public class SomeArray {
             someArray[i] = ~someArray[i];
         }
     }
+    public static int[] negateSomeArray(int[] someArray) {
+        int[] newSomeArray = new int[someArray.length];
+        for (int i = 0; i < someArray.length; i++) {
+            newSomeArray[i] = ~someArray[i];
+        }
+        return newSomeArray;
+    }
+
 }

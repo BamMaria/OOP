@@ -199,5 +199,15 @@ public class SomeArrayTest {
             assertEquals(array[i], arrayOne[i], 0.001);
         }
     }
+    @Test
+    public void testNegateSomeArray() {
+        int[] array = new int[]{4, 3, 2, 1};
+        int[] arrayOne = SomeArray.negateSomeArray(array);
+        for (int i = 0; i < array.length; i++) {
+            assertEquals(array[i] + arrayOne[i], -1, 0.001);
+        }
+    }
+
+
 }
 
