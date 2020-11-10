@@ -5,7 +5,7 @@ public class SomeArray {
         return new int[length];
     }
 
-    public static int[] createSomeArray2(int length) {
+    static int[] createSomeArray2(int length) {
         int[] someArray = new int[length];
         for (int i = 0; i < length; i++) {
             if (i == 0 || i == length - 1) {
@@ -17,7 +17,7 @@ public class SomeArray {
         return someArray;
     }
 
-    public static int[] createSomeArrayRisingOdd(int length) {
+    static int[] createSomeArrayRisingOdd(int length) {
         int[] someArray = new int[length];
         for (int i = 1; i <= length; i++) {
             someArray[i - 1] = 2 * i - 1;
@@ -25,7 +25,7 @@ public class SomeArray {
         return someArray;
     }
 
-    public static int[] createSomeArrayDownEven(int length) {
+    static int[] createSomeArrayDownEven(int length) {
         int[] someArray = new int[length];
         for (int i = length - 1; i >= 0; i--) {
             someArray[i] = 2 * (length - i);
@@ -33,7 +33,7 @@ public class SomeArray {
         return someArray;
     }
 
-    public static int[] createSomeArrayFibonacci(int length) {
+    static int[] createSomeArrayFibonacci(int length) {
         int[] someArray = new int[length];
         int a = 0, b = 1, next;
         for (int i = 0; i < length; i++) {
@@ -45,7 +45,7 @@ public class SomeArray {
         return someArray;
     }
 
-    public static int[] createSomeArraySquareIndex(int length) {
+    static int[] createSomeArraySquareIndex(int length) {
         int[] someArray = new int[length];
         for (int i = 0; i < length; i++) {
             someArray[i] = i * i;
@@ -53,7 +53,7 @@ public class SomeArray {
         return someArray;
     }
 
-    public static double[] createSomeArraySquareEquation(double a, double b, double c) {
+    static double[] createSomeArraySquareEquation(double a, double b, double c) {
         double v = b * b - 4 * a * c;
         if (v > 0) {
             double x1 = (-b + Math.sqrt(v)) / (2 * a);
@@ -72,7 +72,7 @@ public class SomeArray {
         return new double[0];
     }
 
-    public static int[] createSomeArrayNaturalNumber(int length) {
+    static int[] createSomeArrayNaturalNumber(int length) {
         int[] someArray = new int[length];
         int num = 1;
         for (int i = 0; i < length; i++) {
@@ -85,7 +85,7 @@ public class SomeArray {
         return someArray;
     }
 
-    public static double[] createSomeArrayArithmeticProgression(int length, int firstElement, int difference) {
+    static double[] createSomeArrayArithmeticProgression(int length, int firstElement, int difference) {
         double[] someArray = new double[length];
         someArray[0] = firstElement;
         for (int i = 1; i < length; i++) {
@@ -94,7 +94,7 @@ public class SomeArray {
         return someArray;
     }
 
-    public static double[] createSomeArrayGeometricProgression(int length, int firstElement, int factor) {
+    static double[] createSomeArrayGeometricProgression(int length, int firstElement, int factor) {
         double[] someArray = new double[length];
         someArray[0] = firstElement;
         for (int i = 1; i < length; i++) {
@@ -103,7 +103,7 @@ public class SomeArray {
         return someArray;
     }
 
-    public static double[] createSomeArrayOfDivers(int number) {
+    static double[] createSomeArrayOfDivers(int number) {
 
         int length = 1;
         for (int i = 1; i <= number / 2; i++) {
@@ -123,7 +123,7 @@ public class SomeArray {
         return someArray;
     }
 
-    public static double[] createSomeArrayPrimeNumbers(int number) {
+    static double[] createSomeArrayPrimeNumbers(int number) {
         int dividers = 0, length = 0;
         for (int i = 1; i < number; i++) {
             for (int k = 1; k <= i; k++) {
@@ -149,7 +149,7 @@ public class SomeArray {
         return someArray;
     }
 
-    public static int[] createSomeArraySymmetric(int length) {
+    static int[] createSomeArraySymmetric(int length) {
         int[] someArray = new int[length];
         for (int i = 1; i < length / 2 + 1; i++) {
             someArray[i - 1] = i;
@@ -161,14 +161,14 @@ public class SomeArray {
         return someArray;
     }
 
-    public static void oppositeSomeArray(double[] someArray) {
+    static void oppositeSomeArray(double[] someArray) {
         for (int i = 0; i < someArray.length; i++) {
             someArray[i] = -someArray[i];
         }
 
     }
 
-    public static boolean checkNumberInSomeArray(double[] someArray, int number) {
+    static boolean checkNumberInSomeArray(double[] someArray, int number) {
         for (double value : someArray) {
             if (value == number) {
                 return true;
@@ -176,7 +176,8 @@ public class SomeArray {
         }
         return false;
     }
-    public static boolean checkNullInSomeArray(Integer[] someArray) {
+
+    static boolean checkNullInSomeArray(Integer[] someArray) {
         for (Integer integer : someArray) {
             if (integer == null) {
                 return true;
@@ -184,7 +185,8 @@ public class SomeArray {
         }
         return false;
     }
-    public static int countEvenNumbersInSomeArray(int[] someArray) {
+
+    static int countEvenNumbersInSomeArray(int[] someArray) {
         int count = 0;
         for (int value : someArray) {
             if (value % 2 == 0) {
@@ -193,7 +195,8 @@ public class SomeArray {
         }
         return count;
     }
-    public static Integer findMaxNumberInSomeArray(Integer[] someArray) {
+
+    static Integer findMaxNumberInSomeArray(Integer[] someArray) {
         if (someArray.length == 0)
             return null;
         Integer max = someArray[0];
@@ -204,14 +207,16 @@ public class SomeArray {
         }
         return max;
     }
-    public static double sumEvenIndexNumbersInSomeArray(double[] someArray) {
+
+    static double sumEvenIndexNumbersInSomeArray(double[] someArray) {
         int sum = 0;
         for (int i = 0; i < someArray.length; i += 2) {
             sum += someArray[i];
         }
         return sum;
     }
-    public static boolean checkNumDevidersInSomeArray(int[] someArray) {
+
+    static boolean checkNumDevidersInSomeArray(int[] someArray) {
         int divideByFirst = 0, divideByLast = 0;
         for (int i = 0; i < someArray.length; i += 2) {
             if (someArray[i] % someArray[0] == 0)
@@ -221,7 +226,8 @@ public class SomeArray {
         }
         return divideByFirst > divideByLast;
     }
-    public static int findMostPopularNumInSomeArray(int[] someArray) {
+
+    static int findMostPopularNumInSomeArray(int[] someArray) {
         int count = 0, maxCount = 0, currentNum, maxNum = 0;
         for (int value : someArray) {
             currentNum = value;
@@ -237,6 +243,7 @@ public class SomeArray {
         }
         return maxNum;
     }
+
     static int equalsElementIndexInSomeArray(Number[] arr, Number found) {
         for (int i = 0; i < arr.length; i++) {
             if (arr[i].equals(found)) {
@@ -245,7 +252,8 @@ public class SomeArray {
         }
         return -1;
     }
-    public static void swapFirstMaxAndMinNumInSomeArray(int[] someArray) {
+
+    static void swapFirstMaxAndMinNumInSomeArray(int[] someArray) {
         int maxNumber = someArray[0], minNumber = someArray[0], maxIndex = 0, minIndex = 0;
         for (int i = 1; i < someArray.length; i++) {
             if (someArray[i] > maxNumber) {
@@ -260,17 +268,27 @@ public class SomeArray {
         someArray[maxIndex] = minNumber;
         someArray[minIndex] = maxNumber;
     }
-    public static void bitwiseNegationInSomeArray(int[] someArray) {
+
+    static void bitwiseNegationInSomeArray(int[] someArray) {
         for (int i = 0; i < someArray.length; i++) {
             someArray[i] = ~someArray[i];
         }
     }
-    public static int[] negateSomeArray(int[] someArray) {
+
+    static int[] negateSomeArray(int[] someArray) {
         int[] newSomeArray = new int[someArray.length];
         for (int i = 0; i < someArray.length; i++) {
             newSomeArray[i] = ~someArray[i];
         }
         return newSomeArray;
+    }
+
+    static int[] pairSumInSomeArray(int[] someArray) {
+        int[] result = new int[someArray.length / 2 + (someArray.length % 2 == 0 ? 0 : 1)];
+        for (int i = 0; i < result.length; i++) {
+            result[i] = someArray[2 * i] + (2 * i + 1 < someArray.length ? someArray[2 * i + 1] : 0);
+        }
+        return result;
     }
 
 }

@@ -206,7 +206,19 @@ public class SomeArrayTest {
         for (int i = 0; i < array.length; i++) {
             assertEquals(array[i] + arrayOne[i], -1, 0.001);
         }
+
     }
+    @Test
+    public void testPairSumInSomeArray() {
+        int[] array = SomeArray.pairSumInSomeArray(new int[]{1, 2, 3, 4});
+        assertEquals(array[0], 1 + 2, 0.0001);
+        assertEquals(array[1], 3 + 4, 0.0001);
+        array = SomeArray.pairSumInSomeArray(new int[]{1, 2, 3, 4, 5});
+        assertEquals(array[0], 1 + 2, 0.0001);
+        assertEquals(array[1], 3 + 4, 0.0001);
+        assertEquals(array[2], 5, 0.0001);
+    }
+
 
 
 }
