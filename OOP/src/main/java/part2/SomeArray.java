@@ -260,5 +260,9 @@ public class SomeArray {
         someArray[maxIndex] = minNumber;
         someArray[minIndex] = maxNumber;
     }
-
+    public static void bitwiseNegationInSomeArray(int[] someArray) {
+        for (int i = 0; i < someArray.length; i++) {
+            someArray[i] = ~someArray[i];
+        }
+    }
 }

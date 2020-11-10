@@ -186,5 +186,18 @@ public class SomeArrayTest {
         assertEquals(array[1], 0, 0.001);
         assertEquals(array[8], 5, 0.001);
     }
+    @Test
+    public void testBitwiseNegationInSomeArray() {
+        int[] array = new int[]{2, 3, 1, 5, 6};
+        int[] arrayOne = new int[]{2, 3, 1, 5, 6};
+        SomeArray.bitwiseNegationInSomeArray(array);
+        for (int i = 0; i < array.length; i++) {
+            assertEquals(array[i], ~arrayOne[i], 0.001);
+        }
+        SomeArray.bitwiseNegationInSomeArray(array);
+        for (int i = 0; i < array.length; i++) {
+            assertEquals(array[i], arrayOne[i], 0.001);
+        }
+    }
 }
 
