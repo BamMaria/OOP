@@ -297,5 +297,17 @@ public class SomeArray {
         }
         return someBooleanArray;
     }
+    static int[] arrayLongInSomeArray(long[] someArray) {
+        int[] result = new int[someArray.length * 2];
+        for (int i = 0; i < someArray.length; i++) {
+            result[2 * i] = (int) (someArray[i] >> 32);
+            result[2 * i + 1] = (int) someArray[i];
+        }
+        return result;
+    }
+
+    static long getLongInSomeArray(int first, int second) {
+        return (((long) first) << 32 | second);
+    }
 
 }

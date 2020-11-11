@@ -228,7 +228,27 @@ public class SomeArrayTest {
         assertFalse(result[4]);
         assertTrue(result[5]);
     }
+    @Test
+    public void testArrayLongInSomeArray() {
+        long[] array = new long[]{1, 2, 3, 4, 5};
+        int[] result = SomeArray.arrayLongInSomeArray(array);
+        for (int i = 0; i < array.length; i++) {
+            assertEquals(result[2 * i], 0, 0.001);
+            assertEquals(result[2 * i + 1], array[i], 0.001);
+        }
+        array = new long[]{4294672962L};
+        result = SomeArray.arrayLongInSomeArray(array);
+        assertEquals(result[0], 0, 0.001);
+        assertEquals(result[1], -294334.0, 0.001);
+    }
 
+    @Test
+    public void testGetLongInSomeArray() {
+        long value = SomeArray.getLongInSomeArray(10, 2);
+        long[] array = new long[]{value, 1};
+        assertEquals(SomeArray.arrayLongInSomeArray(array)[0], 10, 0.001);
+        assertEquals(SomeArray.arrayLongInSomeArray(array)[1], 2, 0.001);
+    }
 
 
 }
