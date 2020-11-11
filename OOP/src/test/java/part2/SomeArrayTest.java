@@ -249,7 +249,22 @@ public class SomeArrayTest {
         assertEquals(SomeArray.arrayLongInSomeArray(array)[0], 10, 0.001);
         assertEquals(SomeArray.arrayLongInSomeArray(array)[1], 2, 0.001);
     }
-
+    @Test
+    public void testNaturalArrayNumbersWithIndexInSomeArray() {
+        int[] array = SomeArray.naturalArrayNumbersWithIndexInSomeArray(6, 2);
+        assertEquals(array[0], 2, 0.0001);
+        assertEquals(array[1], 3, 0.0001);
+        assertEquals(array[2], 4, 0.0001);
+        assertEquals(array[3], 5, 0.0001);
+        assertEquals(array[4], 6, 0.0001);
+        assertEquals(array[5], 1, 0.0001);
+        array = SomeArray.naturalArrayNumbersWithIndexInSomeArray(5, 3);
+        assertEquals(array[0], 3, 0.0001);
+        assertEquals(array[1], 4, 0.0001);
+        assertEquals(array[2], 5, 0.0001);
+        assertEquals(array[3], 1, 0.0001);
+        assertEquals(array[4], 2, 0.0001);
+    }
 
 }
 
