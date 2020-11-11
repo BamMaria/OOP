@@ -265,6 +265,17 @@ public class SomeArrayTest {
         assertEquals(array[3], 1, 0.0001);
         assertEquals(array[4], 2, 0.0001);
     }
+    @Test
+    public void createSomeArrayMultipleArray() {
+        int[][] arr = SomeArray.createSomeArrayMultipleArray(lengthArrayTest);
+        int k = 1;
+        for (int i = 0; i < lengthArrayTest; i++) {
+            for (int j = 0; j < arr[i].length; j++)
+                assertEquals(arr[i][j], k++, 0.001);
+        }
+    }
+
+
 
 }
 
