@@ -343,5 +343,10 @@ public class SomeArray {
         }
         Arrays.sort(someArray);
     }
+    static void stringsInSomeArray(String[] someArray) {
+        for (String string : someArray) {
+            System.out.println(string);
+        }
+    }
 
 }

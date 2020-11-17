@@ -287,6 +287,11 @@ public class SomeArrayTest {
         }
     }
 
+    @Test
+    public void testStringsInSomeArray() {
+        String[] array = new String[]{"До", "сессии", "рукой", "подать !", "Справимся !"};
+        SomeArray.stringsInSomeArray(array);
+    }
 
 }
 
