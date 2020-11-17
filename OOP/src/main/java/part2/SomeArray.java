@@ -1,5 +1,7 @@
 package part2;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.LinkedList;
 
 public class SomeArray {
     public static int[] createSomeArray1(int length) {
@@ -356,6 +358,11 @@ public class SomeArray {
             }
         }
         return value;
+    }
+    static Collection<String> toHexInSomeArray(int[] someArray) {
+        Collection<String> hexStrings = new LinkedList<>();
+        java.util.Arrays.stream(someArray).forEach(value -> hexStrings.add(Integer.toHexString(value)));
+        return hexStrings;
     }
 
 }

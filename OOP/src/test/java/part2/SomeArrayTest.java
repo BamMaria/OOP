@@ -3,6 +3,7 @@ package part2;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.*;
+import java.util.Collection;
 
 public class SomeArrayTest {
 
@@ -299,6 +300,13 @@ public class SomeArrayTest {
         array = new double[]{9, 2, 3, 4, 0, Double.NEGATIVE_INFINITY, 5, 6, Double.POSITIVE_INFINITY};
         assertEquals(SomeArray.multiInSomeArray(array), 9 * 2 * 3 * 4 * 5 * 6, 0.0001);
     }
-
+    @Test
+    public void testToHexInSomeArray() {
+        int[] array = new int[]{1, 2, 3, 4, 5};
+        Collection<String> hexStrings = SomeArray.toHexInSomeArray(array);
+        for (String hexString : hexStrings) {
+            System.out.println(hexString);
+        }
+    }
 }
 
