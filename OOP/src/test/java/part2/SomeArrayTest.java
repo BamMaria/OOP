@@ -274,7 +274,18 @@ public class SomeArrayTest {
                 assertEquals(arr[i][j], k++, 0.001);
         }
     }
-
+    @Test
+    public void testSortNaNInSomeArray() {
+        Double[] array = new Double[]{1.2, 3.2, Double.NaN, 2.1};
+        SomeArray.sortNaNInSomeArray(array);
+        assertEquals(array[0], 1.2, 0.0001);
+        assertEquals(array[1], 3.2, 0.0001);
+        array = new Double[]{1.2, 3.2, 5.4, 2.1};
+        SomeArray.sortNaNInSomeArray(array);
+        for (int i = 0; i < array.length - 1; i++) {
+            assertTrue(array[i] < array[i + 1]);
+        }
+    }
 
 
 }

@@ -1,4 +1,5 @@
 package part2;
+import java.util.Arrays;
 
 public class SomeArray {
     public static int[] createSomeArray1(int length) {
@@ -334,6 +335,13 @@ public class SomeArray {
         }
         return someArray;
     }
-
+    static void sortNaNInSomeArray(Double[] someArray) {
+        for (Double number : someArray) {
+            if (number.isNaN()) {
+                return;
+            }
+        }
+        Arrays.sort(someArray);
+    }
 
 }
