@@ -28,10 +28,18 @@ public class SomeStringsTest {
         assertTrue(SomeStrings.palindromeSomeStrings(" Ежу хуже "));
         assertFalse(SomeStrings.palindromeSomeStrings("Ежик"));
     }
+
     @Test
     public void testIsEqualsCaseSomeArray() {
         assertTrue(SomeStrings.isEqualsCaseSomeArray("abc", "ABC"));
         assertFalse(SomeStrings.isEqualsCaseSomeArray(null, "ABC"));
         assertFalse(SomeStrings.isEqualsCaseSomeArray("abc", "abc"));
+    }
+
+    @Test
+    public void testLastContainIndexInFirstHalfInSomeStrings() {
+        assertEquals(SomeStrings.lastContainIndexInFirstHalfInSomeStrings("fgdabc", "abc"), 3, 0.001);
+        assertEquals(SomeStrings.lastContainIndexInFirstHalfInSomeStrings("abcabdfgfabc", "ab"), 3, 0.001);
+        assertEquals(SomeStrings.lastContainIndexInFirstHalfInSomeStrings("yiiiu", "ol"), -1, 0.001);
     }
 }

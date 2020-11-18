@@ -29,8 +29,19 @@ public class SomeStrings {
         }
         return true;
     }
+
     static boolean isEqualsCaseSomeArray(String stringOne, String stringTwo) {
         return stringOne != null && stringTwo != null && !(stringOne.equals(stringTwo)) && stringOne.equalsIgnoreCase(stringTwo);
+    }
+
+    static int lastContainIndexInFirstHalfInSomeStrings(String stringOne, String stringTwo) {
+        if (stringOne.contains(stringTwo)) {
+            return stringOne.lastIndexOf(stringTwo, stringOne.length() / 2);
+        } else if (stringTwo.contains(stringOne)) {
+            return stringTwo.lastIndexOf(stringOne, stringTwo.length() / 2);
+        } else {
+            return -1;
+        }
     }
 
 }
