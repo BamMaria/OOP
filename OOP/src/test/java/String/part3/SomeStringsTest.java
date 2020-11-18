@@ -16,4 +16,9 @@ public class SomeStringsTest {
         SomeStrings.printBytesSomeStrings(string);
         System.out.println();
     }
+    @Test
+    public void testCompareSomeStrings()
+    {
+        SomeStrings.compareSomeStrings();
+    }
 }

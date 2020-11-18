@@ -13,5 +13,12 @@ public class SomeStrings {
             System.out.println(byt);
         }
     }
+    static void compareSomeStrings() {
+        String string ="А за окном зима... ";
+        String stringOne = new String(string);
+        System.out.println(string == stringOne);
+        System.out.println(string.equals(stringOne));
+    }
+
 
 }
