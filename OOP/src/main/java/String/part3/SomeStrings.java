@@ -6,4 +6,12 @@ public class SomeStrings {
             System.out.println(string.charAt(i));
         }
     }
+
+    static public void printBytesSomeStrings(String string) {
+        var bytes = string.getBytes();
+        for (byte byt : bytes) {
+            System.out.println(byt);
+        }
+    }
+
 }

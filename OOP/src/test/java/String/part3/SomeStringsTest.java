@@ -10,4 +10,10 @@ public class SomeStringsTest {
     public void testEachCharacterSomeStrings() {
         SomeStrings.eachCharacterSomeStrings(string);
     }
-} 
+    @Test
+    public void testPrintBytesSomeStrings()
+    {
+        SomeStrings.printBytesSomeStrings(string);
+        System.out.println();
+    }
+}
