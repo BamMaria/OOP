@@ -70,5 +70,16 @@ public class SomeStrings {
         }
         return oneString;
     }
+    static String fromToInSomeString(String string, int from, int to) {
+        if (to <= from) {
+            return "";
+        } else if (from < 0) {
+            from = 0;
+        }
+        if (to > string.length()) {
+            to = string.length();
+        }
+        return string.substring(from, to);
+    }
 
 }

@@ -62,4 +62,11 @@ public class SomeStringsTest {
         assertEquals(SomeStrings.replaceSomeArray("abcsde", "sd", "aa"), "abcaae");
 
     }
+    @Test
+    public void testFromToInSomeString() {
+        assertEquals(SomeStrings.fromToInSomeString("abc", 0, 2), "ab");
+        assertEquals(SomeStrings.fromToInSomeString("abcsgrha", 3, 4), "s");
+        assertEquals(SomeStrings.fromToInSomeString("abc", -1, 100), "abc");
+        assertEquals(SomeStrings.fromToInSomeString("abc", 3, 2), "");
+    }
 }
