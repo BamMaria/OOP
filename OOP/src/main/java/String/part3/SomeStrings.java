@@ -60,6 +60,15 @@ public class SomeStrings {
         }
         return k;
     }
-
+    static String replaceSomeArray(String oneString, String twoString, String threeString) {
+        for (int i = 0; i < 100; i++) {
+            if (oneString.contains(twoString)) {
+                oneString = oneString.replaceAll(twoString, threeString);
+            } else {
+                break;
+            }
+        }
+        return oneString;
+    }
 
 }
