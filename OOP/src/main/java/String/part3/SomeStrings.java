@@ -52,5 +52,14 @@ public class SomeStrings {
         }
         return k;
     }
+    static int stringsStartsEndsInSomeStrings(String[] strings, String prefix, String suffix) {
+        int k = 0;
+        for (String string : strings) {
+            if (string.trim().startsWith(prefix) && string.trim().endsWith(suffix)) ;
+            k++;
+        }
+        return k;
+    }
+
 
 }
