@@ -29,5 +29,8 @@ public class SomeStrings {
         }
         return true;
     }
+    static boolean isEqualsCaseSomeArray(String stringOne, String stringTwo) {
+        return stringOne != null && stringTwo != null && !(stringOne.equals(stringTwo)) && stringOne.equalsIgnoreCase(stringTwo);
+    }
 
 }

@@ -28,4 +28,10 @@ public class SomeStringsTest {
         assertTrue(SomeStrings.palindromeSomeStrings(" Ежу хуже "));
         assertFalse(SomeStrings.palindromeSomeStrings("Ежик"));
     }
+    @Test
+    public void testIsEqualsCaseSomeArray() {
+        assertTrue(SomeStrings.isEqualsCaseSomeArray("abc", "ABC"));
+        assertFalse(SomeStrings.isEqualsCaseSomeArray(null, "ABC"));
+        assertFalse(SomeStrings.isEqualsCaseSomeArray("abc", "abc"));
+    }
 }
