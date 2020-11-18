@@ -43,5 +43,14 @@ public class SomeStrings {
             return -1;
         }
     }
+    static int stringsStartsEndsWithInSomeArray(String[] strings, String prefix, String suffix) {
+        int k = 0;
+        for (String string : strings) {
+            if (string.startsWith(prefix) && string.endsWith(suffix)) {
+                k++;
+            }
+        }
+        return k;
+    }
 
 }

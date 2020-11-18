@@ -42,4 +42,10 @@ public class SomeStringsTest {
         assertEquals(SomeStrings.lastContainIndexInFirstHalfInSomeStrings("abcabdfgfabc", "ab"), 3, 0.001);
         assertEquals(SomeStrings.lastContainIndexInFirstHalfInSomeStrings("yiiiu", "ol"), -1, 0.001);
     }
+
+    @Test
+    public void testStringsStartsEndsWithInSomeArray() {
+        assertEquals(SomeStrings.stringsStartsEndsWithInSomeArray(new String[]{"abcde", "abbde", "abbde", "abfde"}, "ab", "de"), 4, 0.001);
+        assertEquals(SomeStrings.stringsStartsEndsWithInSomeArray(new String[]{"abcde", "abbde", "abbe", "abfe"}, "ab", "de"), 2, 0.001);
+    }
 }
