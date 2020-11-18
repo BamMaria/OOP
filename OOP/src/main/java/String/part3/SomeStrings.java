@@ -13,12 +13,21 @@ public class SomeStrings {
             System.out.println(byt);
         }
     }
+
     static void compareSomeStrings() {
-        String string ="А за окном зима... ";
+        String string = "А за окном зима... ";
         String stringOne = new String(string);
         System.out.println(string == stringOne);
         System.out.println(string.equals(stringOne));
     }
 
+    static boolean palindromeSomeStrings(String string) {
+        for (int i = 0; i < string.length() / 2; i++) {
+            if (string.charAt(i) != string.charAt(string.length() - i - 1)) {
+                return false;
+            }
+        }
+        return true;
+    }
 
 }
