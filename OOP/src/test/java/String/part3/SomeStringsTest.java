@@ -1,6 +1,7 @@
 package String.part3;
 
 import org.testng.annotations.Test;
+import part2.Matrix;
 
 import static org.testng.Assert.*;
 
@@ -68,5 +69,17 @@ public class SomeStringsTest {
         assertEquals(SomeStrings.fromToInSomeString("abcsgrha", 3, 4), "s");
         assertEquals(SomeStrings.fromToInSomeString("abc", -1, 100), "abc");
         assertEquals(SomeStrings.fromToInSomeString("abc", 3, 2), "");
+    }
+    @Test
+    public void testPrintsObjectInSomeArray() {
+        SomeStrings.printsObjectInSomeArray(new Person("Мария", "Бамбурова"));
+        SomeStrings.printsObjectInSomeArray(new Point(1, 2, 3));
+        SomeStrings.printsObjectInSomeArray(new NamedPoint(8, 1, 10, "First"));
+        Matrix firstMatrix = new Matrix(2, 2);
+        firstMatrix.setAt(1, 1, 10);
+        firstMatrix.setAt(1, 2, 10);
+        firstMatrix.setAt(2, 1, 10);
+        firstMatrix.setAt(2, 2, 10);
+        SomeStrings.printsObjectInSomeArray(firstMatrix);
     }
 }

@@ -81,5 +81,8 @@ public class SomeStrings {
         }
         return string.substring(from, to);
     }
+    public static void printsObjectInSomeArray(Object object) {
+        System.out.println("Описание объекта: " + object);
+    }
 
 }
