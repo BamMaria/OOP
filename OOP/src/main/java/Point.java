@@ -38,8 +38,9 @@ public class Point {
     public double setZ() {
         return this.Z;
     }
-
-
-
+    public String toString() {
+        return "[" + this.X + "," + this.Y + "," + this.Z + "]";
+    }
+    
 }
 
