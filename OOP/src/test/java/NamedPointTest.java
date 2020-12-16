@@ -1,6 +1,8 @@
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.*;
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertNull;
 
 public class NamedPointTest {
     NamedPoint firstPoint = new NamedPoint();
@@ -21,14 +23,18 @@ public class NamedPointTest {
         thirdPoint.setName("Five");
         assertEquals(thirdPoint.getName(), "Five");
     }
-
-    @Test
-    public void testReset()
-    {
+    public void testReset() {
         firstPoint.reset();
         assertEquals(firstPoint.getName(), "Absent");
         thirdPoint.reset();
         assertEquals(thirdPoint.getName(), "Absent");
     }
+
+    @Test
+    public void testToString() {
+        assertEquals(new NamedPoint(1, 2, 3, "Point").toString(), "Point [1.0,2.0,3.0]");
+        assertEquals(new NamedPoint(1, 2, 3).toString(), "[1.0,2.0,3.0]");
+    }
+
 
 }
