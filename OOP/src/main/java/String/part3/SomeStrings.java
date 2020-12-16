@@ -81,8 +81,21 @@ public class SomeStrings {
         }
         return string.substring(from, to);
     }
-    public static void printsObjectInSomeArray(Object object) {
+    static void printsObjectInSomeStrings(Object object) {
         System.out.println("Описание объекта: " + object);
+    }
+
+
+    static String[] getSingleInSomeStrings(String source) {
+        String[] words = source.split(" ");
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].length() > 0) {
+                if (Character.isLetter(words[i].charAt(0))) {
+                    words[i] = words[i].substring(0, 1).toUpperCase() + words[i].substring(1);
+                }
+            }
+        }
+        return words;
     }
 
 }

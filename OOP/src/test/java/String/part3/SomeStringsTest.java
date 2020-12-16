@@ -70,16 +70,27 @@ public class SomeStringsTest {
         assertEquals(SomeStrings.fromToInSomeString("abc", -1, 100), "abc");
         assertEquals(SomeStrings.fromToInSomeString("abc", 3, 2), "");
     }
+    /*
     @Test
     public void testPrintsObjectInSomeArray() {
-        SomeStrings.printsObjectInSomeArray(new Person("Мария", "Бамбурова"));
-        SomeStrings.printsObjectInSomeArray(new Point(1, 2, 3));
-        SomeStrings.printsObjectInSomeArray(new NamedPoint(8, 1, 10, "First"));
+        SomeStrings.printsObjectInSomeString  (new Person("Мария", "Бамбурова"));
+        SomeStrings.printsObjectInSomeString (new Point(1, 2, 3));
+        SomeStrings.printsObjectInSomeString (new NamedPoint(8, 1, 10, "First"));
         Matrix firstMatrix = new Matrix(2, 2);
         firstMatrix.setAt(1, 1, 10);
         firstMatrix.setAt(1, 2, 10);
         firstMatrix.setAt(2, 1, 10);
         firstMatrix.setAt(2, 2, 10);
-        SomeStrings.printsObjectInSomeArray(firstMatrix);
+        SomeStrings.printsObjectInSomeString (firstMatrix);
+    }
+    /
+     */
+    @Test
+    public void testGetSingleInSomeStrings() {
+        assertEquals(SomeStrings.getSingleInSomeStrings("hello i am 5 point")[0], "Hello");
+        assertEquals(SomeStrings.getSingleInSomeStrings("hello i am 5 point")[1], "I");
+        assertEquals(SomeStrings.getSingleInSomeStrings("hello i am 5 point")[2], "Am");
+        assertEquals(SomeStrings.getSingleInSomeStrings("hello i am 5 point")[4], "Point");
+
     }
 }
