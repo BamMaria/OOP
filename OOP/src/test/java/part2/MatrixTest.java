@@ -38,4 +38,13 @@ import static org.testng.Assert .*;
             second.setAt(0, 1, 33);
             assertEquals(second.getAt(0, 1), 33, 0.001);
         }
+        @Test
+        public void testToString(){
+            Matrix firstMatrix = new Matrix(2, 2);
+            firstMatrix.setAt(1, 1, -2);
+            firstMatrix.setAt(1, 2, 1);
+            firstMatrix.setAt(2, 1, 5);
+            firstMatrix.setAt(2, 2, 4);
+            System.out.println(firstMatrix + "\n");
+        }
     }
