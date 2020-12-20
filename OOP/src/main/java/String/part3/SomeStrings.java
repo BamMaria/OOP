@@ -1,4 +1,6 @@
 package String.part3;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 public class SomeStrings {
     static public void eachCharacterSomeStrings(String string) {
@@ -124,4 +126,9 @@ public class SomeStrings {
         }
         return builder.toString();
     }
+    static String codeInSomeStrings(String string) {
+        byte[] byteString = string.getBytes(Charset.defaultCharset());
+        return new String(byteString, StandardCharsets.UTF_16);
+    }
+
 }

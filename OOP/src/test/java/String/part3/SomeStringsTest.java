@@ -108,11 +108,16 @@ public class SomeStringsTest {
         assertNull(SomeStrings.buildStringCharToIndexInSomeArray(null));
     }
 
- 
+
     @Test
     public void testIntInSomeStrings() {
         assertEquals(SomeStrings.intInSomeStrings(10), "0 1 2 3 4 5 6 7 8 9");
         assertEquals(SomeStrings.intInSomeStrings(-1), "");
         System.out.println(SomeStrings.intInSomeStrings(10000));
+    }
+    @Test
+    public void testCodeInSomeStrings()
+    {
+        System.out.println(SomeStrings.codeInSomeStrings("abzABZ01239"));
     }
 }
