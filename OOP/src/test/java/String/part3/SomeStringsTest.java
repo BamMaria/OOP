@@ -93,4 +93,12 @@ public class SomeStringsTest {
         assertEquals(SomeStrings.getSingleInSomeStrings("hello i am 5 point")[4], "Point");
 
     }
+
+    @Test
+    public void testBuildStringInSomeArray() {
+        assertEquals(SomeStrings.buildStringInSomeArray(new String[]{"ab", "ac"}), "ab, ac");
+        assertEquals(SomeStrings.buildStringInSomeArray(new String[]{"ab", "ac", ""}), "ab, ac, ");
+        assertEquals(SomeStrings.buildStringInSomeArray(new String[]{}), "");
+        assertEquals(SomeStrings.buildStringInSomeArray(new String[]{null, "ab"}), "null, ab");
+    }
 }

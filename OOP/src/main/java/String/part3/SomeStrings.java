@@ -97,5 +97,8 @@ public class SomeStrings {
         }
         return words;
     }
+    static String buildStringInSomeArray(String[] subStrings) {
+        return String.join(", ", subStrings);
+    }
 
 }
