@@ -107,4 +107,12 @@ public class SomeStringsTest {
         assertEquals(SomeStrings.buildStringCharToIndexInSomeArray("qwertyuiop"), "0w2r4y6i8p");
         assertNull(SomeStrings.buildStringCharToIndexInSomeArray(null));
     }
+
+ 
+    @Test
+    public void testIntInSomeStrings() {
+        assertEquals(SomeStrings.intInSomeStrings(10), "0 1 2 3 4 5 6 7 8 9");
+        assertEquals(SomeStrings.intInSomeStrings(-1), "");
+        System.out.println(SomeStrings.intInSomeStrings(10000));
+    }
 }

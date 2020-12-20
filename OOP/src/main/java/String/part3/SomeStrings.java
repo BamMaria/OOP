@@ -113,4 +113,15 @@ public class SomeStrings {
         }
         return builder.toString();
     }
+    static String intInSomeStrings(int value) {
+        if (value <= 0) {
+            return "";
+        }
+        StringBuilder builder = new StringBuilder();
+        builder.append(0);
+        for (int i = 1; i < value; i++) {
+            builder.append(" ").append(i);
+        }
+        return builder.toString();
+    }
 }
