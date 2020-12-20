@@ -101,4 +101,16 @@ public class SomeStrings {
         return String.join(", ", subStrings);
     }
 
+    static String buildStringCharToIndexInSomeArray(String string) {
+        if (string == null) {
+            return null;
+        }
+        StringBuilder builder = new StringBuilder(string);
+        for (int i = 0; i < string.length(); i++) {
+            if (i % 2 == 0) {
+                builder.replace(i, i + 1, Integer.toString(i));
+            }
+        }
+        return builder.toString();
+    }
 }
