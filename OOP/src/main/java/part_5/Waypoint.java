@@ -1,5 +1,5 @@
 package part_5;
-public class PointWay extends Location {
+public class Waypoint extends Location {
     private WaypointType type;
     private Settlement settlement;
 
