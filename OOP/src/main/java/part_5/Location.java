@@ -1,7 +1,8 @@
 package part_5;
+import java.util.Objects;
 
 
-    public abstract class Location {
+    public class Location {
         private int id;
         private String name;
         private double latitude;
@@ -48,5 +49,21 @@ package part_5;
 
         public void setName(String name) {
             this.name = name;
+        }
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) {
+                return true;
+            }
+            if (o == null || getClass() != o.getClass()) {
+                return false;
+            }
+            Location location = (Location) o;
+            return id == location.id;
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(id);
         }
 }
