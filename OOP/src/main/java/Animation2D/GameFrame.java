@@ -16,11 +16,11 @@ public class GameFrame extends JFrame implements KeyListener, Runnable {
 
     private static final long serialVersionUID = 1L;
     CanvasPanel canvas;
-    int count=0;
+    int count = 0;
     Thread thread;
     Hero player;
 
-    public GameFrame(){
+    public GameFrame() {
 
         canvas = new CanvasPanel();
 
@@ -28,7 +28,7 @@ public class GameFrame extends JFrame implements KeyListener, Runnable {
 
         addKeyListener(this);
 
-        setSize(1200,800);
+        setSize(1200, 800);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
@@ -41,30 +41,29 @@ public class GameFrame extends JFrame implements KeyListener, Runnable {
         Random rand = new Random();
 
 
-
-        while(count<=1000){
+        while (count <= 1000) {
 
 
             int coorX = rand.nextInt(1000) + 100;
 
-            if(canvas.coinStat == false){
-                canvas.coins.add(new Coins(coorX,600));
+            if (canvas.coinStat == false) {
+                canvas.coins.add(new Coins(coorX, 600));
                 canvas.coinStat = true;
             }
 
-            int veloX = rand.nextInt(5)+10;
-            int  coorY = rand.nextInt(550) + 100;
-            int  coorYLeft = rand.nextInt(550) + 100;
-            int  coorY2 = rand.nextInt(550) + 100;
-            int  coorYLeft2 = rand.nextInt(550) + 100;
+            int veloX = rand.nextInt(5) + 10;
+            int coorY = rand.nextInt(550) + 100;
+            int coorYLeft = rand.nextInt(550) + 100;
+            int coorY2 = rand.nextInt(550) + 100;
+            int coorYLeft2 = rand.nextInt(550) + 100;
 
-            canvas.missiles.add(new Missiles(1100,coorY,-veloX));
-            veloX = rand.nextInt(5)+10;
-            canvas.missilesLeft.add(new MissilesLeft(0,coorYLeft,veloX));
-            veloX = rand.nextInt(5)+10;
-            canvas.missiles.add(new Missiles(1100,coorY2,-veloX));
-            veloX = rand.nextInt(5)+10;
-            canvas.missilesLeft.add(new MissilesLeft(0,coorYLeft2,veloX));
+            canvas.missiles.add(new Missiles(1100, coorY, -veloX));
+            veloX = rand.nextInt(5) + 10;
+            canvas.missilesLeft.add(new MissilesLeft(0, coorYLeft, veloX));
+            veloX = rand.nextInt(5) + 10;
+            canvas.missiles.add(new Missiles(1100, coorY2, -veloX));
+            veloX = rand.nextInt(5) + 10;
+            canvas.missilesLeft.add(new MissilesLeft(0, coorYLeft2, veloX));
 
             try {
 
@@ -83,34 +82,31 @@ public class GameFrame extends JFrame implements KeyListener, Runnable {
     @Override
     public void keyPressed(KeyEvent arg0) {
         // TODO Auto-generated method stub
-        switch(arg0.getKeyCode()){
+        switch (arg0.getKeyCode()) {
             case KeyEvent.VK_RIGHT:
-                if(canvas.player.y<600){
+                if (canvas.player.y < 600) {
                     canvas.player.veloX = 10;
-                }
-                else{
-                    canvas.player.veloX =10;
-                    canvas.player.direction =0;
+                } else {
+                    canvas.player.veloX = 10;
+                    canvas.player.direction = 0;
                 }
                 break;
             case KeyEvent.VK_LEFT:
-                if(canvas.player.y<600){
+                if (canvas.player.y < 600) {
                     canvas.player.veloX = -10;
-                }
-                else{
+                } else {
                     canvas.player.veloX = -10;
-                    canvas.player.direction =1;
+                    canvas.player.direction = 1;
                 }
                 break;
             case KeyEvent.VK_UP:
-                if(canvas.player.y==600 && canvas.player.direction == 0){
+                if (canvas.player.y == 600 && canvas.player.direction == 0) {
                     canvas.player.veloY = -120;
-                    canvas.player.direction =2;
+                    canvas.player.direction = 2;
                     musicJump();
-                }
-                else if(canvas.player.y==600 && canvas.player.direction == 1){
+                } else if (canvas.player.y == 600 && canvas.player.direction == 1) {
                     canvas.player.veloY = -120;
-                    canvas.player.direction =3;
+                    canvas.player.direction = 3;
                     musicJump();
                 }
                 break;
@@ -128,16 +124,16 @@ public class GameFrame extends JFrame implements KeyListener, Runnable {
     @Override
     public void keyReleased(KeyEvent arg0) {
         // TODO Auto-generated method stub
-        switch(arg0.getKeyCode()){
+        switch (arg0.getKeyCode()) {
             case KeyEvent.VK_RIGHT:
-                canvas.player.veloX =0;
+                canvas.player.veloX = 0;
                 break;
             case KeyEvent.VK_LEFT:
-                canvas.player.veloX =0;
+                canvas.player.veloX = 0;
                 break;
             case KeyEvent.VK_UP:
-                if(canvas.player.y==480)
-                    canvas.player.veloY =6;
+                if (canvas.player.y == 480)
+                    canvas.player.veloY = 6;
                 break;
         }
     }
@@ -154,29 +150,27 @@ public class GameFrame extends JFrame implements KeyListener, Runnable {
 
     }
 
-    public static void music()
-    {
+    public static void music() {
         try {
             AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("Music/Backsound.wav").getAbsoluteFile());
             Clip clip = AudioSystem.getClip();
             clip.open(audioInputStream);
             clip.start();
             clip.loop(100);
-        } catch(Exception ex) {
+        } catch (Exception ex) {
             System.out.println("Error with playing sound.");
             ex.printStackTrace();
         }
 
     }
 
-    public static void musicJump()
-    {
+    public static void musicJump() {
         try {
             AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("Music/Jump.wav").getAbsoluteFile());
             Clip clip = AudioSystem.getClip();
             clip.open(audioInputStream);
             clip.start();
-        } catch(Exception ex) {
+        } catch (Exception ex) {
             System.out.println("Error with playing sound.");
             ex.printStackTrace();
         }

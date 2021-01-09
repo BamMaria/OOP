@@ -1,4 +1,5 @@
 package Animation2D;
+
 import java.awt.Graphics;
 import java.awt.Image;
 import java.io.File;
@@ -8,11 +9,11 @@ import javax.imageio.ImageIO;
 
 public class Missiles {
 
-    int x , y;
+    int x, y;
     int veloX;
     Image missile;
 
-    public Missiles(int x,int y,int veloX){
+    public Missiles(int x, int y, int veloX) {
         this();
         this.x = x;
         this.y = y;
@@ -30,15 +31,15 @@ public class Missiles {
 
     }
 
-    public void update(){
+    public void update() {
 
         x += veloX;
 
     }
 
-    public void render(Graphics g){
+    public void render(Graphics g) {
 
-        g.drawImage(missile, x,y ,null);
+        g.drawImage(missile, x, y, null);
 
     }
 
