@@ -59,7 +59,7 @@ public class TicTacToe extends JFrame {
 
     private ImageIcon loadIcon()
     {
-        java.net.URL url = ClassLoader.getSystemResource("tictactoe.png");
+        java.net.URL url = ClassLoader.getSystemResource("res/tictactoe.png");
         if(url != null)
             return new ImageIcon(url);
         else
