@@ -1,6 +1,6 @@
 package SimplePlayerMusic;
 import java.util.Scanner;
-import javax.media.CannotRealizeException;
+//import javax.media.CannotRealizeException;
 
 
 public class MusicPlayer {
@@ -18,6 +18,7 @@ public class MusicPlayer {
 
     public static void main(String args[]) throws Exception {
         try {
+
             Controller musicPlayer = new Controller();
 
             System.out.println("======================");
@@ -59,7 +60,7 @@ public class MusicPlayer {
                     }
                     if (st.equals("stop")) {
                         musicPlayer.endPlayer();
-                        System.exit(1);
+                        System.exit(0);
                     }
                 }
                 System.out.println("Number of songs left: " + musicPlayer.getNumberOfSongsLeft());
@@ -69,6 +70,7 @@ public class MusicPlayer {
                 st = s.nextLine();
                 if (st.equals("stop")) {
                     musicPlayer.stopCurrentSong();
+                    System.exit(0);
                 }
 
 
