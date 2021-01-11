@@ -1,139 +1,277 @@
 package SimplePlayerMusic;
-import javax.media.*;
-import java.net.*;
-import java.io.*;
-import java.util.*;
+
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+
+import javax.imageio.ImageIO;
+import javax.Player;
+import javax.media.*;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
-/**
- * Controller Class.
- */
-class Controller implements ActionListener {
+public class Controller implements ActionListener, ChangeListener {
     private Player player;
-    private Model playlist;
+    private PlaylistsContainer playlists;
+    private View GUI;
+
+    private int currentPlaylistIndex;
     private int currentSongIndex;
-    private int numberOfSongsLeft;
+    private boolean isItPlaying;        // флаг для изменения значка воспроизведения на паузу и наоборот
+    private Object Manager;
 
+    /**
+     * Конструктор по умолчанию. Загружает первую песню в плейлист (поверх нескольких инициализаций членов класса).
+     */
     public Controller() throws Exception {
-        this.playlist = new Model();
+        this.playlists = new PlaylistsContainer();
         this.GUI = new View();
+
         addActionListeners();
-        File file = new File("playlist.txt");
-        playlist.loadSongs(file);
-        numberOfSongsLeft = playlist.getCount();
-        initializePlayer(0);
+
+        loadSongsIntoPlaylist("anime_playlist1");
+        loadSongsIntoPlaylist("blackbear");
+
+        //  прослушиватель изменения ползунка громкости
+        GUI.getVolumeSlider().addChangeListener(this);
+
+        // нагрузки первой композиции первого списка воспроизведения
+        currentPlaylistIndex = 0;
+        currentSongIndex = 0;
+        initializePlayer(currentPlaylistIndex, currentSongIndex);
+        isItPlaying = false;
     }
 
-    public void initializePlayer(int index) throws Exception {
-        File song = new File(playlist.get(index));
-        player = Manager.createRealizedPlayer(song.toURI().toURL());
-        currentSongIndex = index;
+    private void loadSongsIntoPlaylist(String playlistName) throws Exception {
+        URL path = Controller.class.getResource("playlists/" + playlistName + ".txt");
+        File file = new File(path.getFile());
+        playlists.add(new Playlist());
+        //  правый параметр <= индекс только что добавленной песни
+        playlists.loadSongs(file, playlists.getNumberOfPlaylists() - 1);
     }
 
-    public Player getPlayer() {
-        return player;
+
+   private void initializePlayer(int currentPlaylistIndex, int currentSongIndex) throws Exception {
+       player = Manager.createRealizedPlayer(
+               (playlists.getSong(currentPlaylistIndex, currentSongIndex)).toURI().toURL()
+        );
     }
 
-    public void start() {
-        player.start();
-        printCurrentSong();
-        numberOfSongsLeft--;
+
+    private void loadSongAndPlay(int currentPlaylistIndex, int currentSongIndex) throws Exception {
+        stopCurrentSong();
+        initializePlayer(currentPlaylistIndex, currentSongIndex);
+        start();
     }
 
-    public void stopCurrentSong() {
-        player.stop();
-
-    }
-
-    public boolean areThereNoMoreSongs() {
-        if (currentSongIndex == playlist.getCount() - 1) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public void endPlayer() {
-        player = null;
-    }
-    public void back() throws Exception {
-        if (currentSongIndex > 0) {
-            player.stop();
-            File song = new File(playlist.get(--currentSongIndex));
-            player = Manager.createRealizedPlayer(song.toURI().toURL());
-            player.start();
-            printCurrentSong();
-            numberOfSongsLeft++;
-        } else {
-            System.out.println("Can't go back further.");
-        }
-    }
-
-    public void skip() throws Exception {
-        if (currentSongIndex < playlist.getCount()-) {
-            player.stop();
-            File song = new File(playlist.get(++currentSongIndex ));
-            player = Manager.createRealizedPlayer(song.toURI().toURL());
-            player.start();
-            printCurrentSong();
-            currentSongIndex++;
-            numberOfSongsLeft--;
-        } else {
-
-            System.out.println("No more songs to play.");
-        }
-    }
-
-    public void printCurrentSong() {
-        System.out.println("playing : " + playlist.get(currentSongIndex));
-    }
-
-    public void printPlaylist() {
-        System.out.println("List of songs: ");
-        System.out.println("======");
-        playlist.printAll();
-        System.out.println("======");
-    }
-
-    public void removeSong(int index) {
-        playlist.remove(index);
-        numberOfSongsLeft--;
-    }
-
-    public int getNumberOfSongsLeft() {
-        return numberOfSongsLeft;
-    }
     private void addActionListeners() {
-        GUI.backButton.addActionListener(this);
-        GUI.playButton.addActionListener(this);
-        GUI.skipButton.addActionListener(this);
+        GUI.getPrevPlaylistButton().addActionListener(this);
+        GUI.getBackButton().addActionListener(this);
+        GUI.getPlayButton().addActionListener(this);
+        GUI.getSkipButton().addActionListener(this);
+        GUI.getNextPlaylistButton().addActionListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if ((((JButton) e.getSource()) == GUI.backButton)) {
-            System.out.println("back");
+        resetIcons();
+
+        if ((((JButton) e.getSource()) == GUI.getPrevPlaylistButton())) {
+            try {
+                prevPlaylist();
+            } catch (Exception ex) {
+                System.out.println(ex);
+            }
+        }
+
+        if ((((JButton) e.getSource()) == GUI.getBackButton())) {
             try {
                 back();
             } catch (Exception ex) {
-                System.out.println("too far left");
+                System.out.println(ex);
             }
+        }
+        // TODO:   чтобы кнопка паузы стала кнопкой воспроизведения
+        //  как только песня закончится (когда песня завершится, перейдите к следующему)
+        if ((((JButton) e.getSource()) == GUI.getPlayButton())) {
+            if (!isItPlaying) {
+                start();
+                changePlayToPause();
+            } else {
+                stopCurrentSong();
+                changePauseToPlay();
+            }
+        }
 
-        }
-        if ((((JButton) e.getSource()) == GUI.playButton)) {
-            System.out.println("play");
-            start();
-        }
-        if ((((JButton) e.getSource()) == GUI.skipButton)) {
-            System.out.println("skip");
+        if ((((JButton) e.getSource()) == GUI.getSkipButton())) {
             try {
                 skip();
             } catch (Exception ex) {
-                System.out.println("too far right");
+                System.out.println(ex);
             }
-
         }
+
+        if ((((JButton) e.getSource()) == GUI.getNextPlaylistButton())) {
+            try {
+                nextPlaylist();
+            } catch (Exception ex) {
+                System.out.println(ex);
+            }
+        }
+    }
+
+    private void start() {
+
+        (player.getGainControl()).setLevel((float)GUI.getVolumeSlider().getValue() / 150.0f);
+        GUI.setTitle(playlists.getSong(currentPlaylistIndex, currentSongIndex).getName());
+        isItPlaying = true;
+    }
+
+    /**
+     *  Останавливает игрока.
+     */
+    private void stopCurrentSong() {
+       // player.stop();
+        isItPlaying = false;
+    }
+
+    /**
+     *  Загружает первую песню из предыдущего списка воспроизведения.
+     */
+    private void prevPlaylist() throws Exception {
+        if (currentPlaylistIndex == 0) {
+            GUI.getPrevPlaylistButton().setText(null);
+            changePrevPlaylistToError(); // display error on prevPlaylistButton
+        } else {
+            currentSongIndex = 0;    // reset song index
+            loadSongAndPlay(--currentPlaylistIndex, currentSongIndex);
+            changePlayToPause();
+        }
+    }
+
+    private void back() throws Exception {
+        if (currentSongIndex == 0) {
+            changeBackToError();
+        } else {
+            loadSongAndPlay(currentPlaylistIndex, --currentSongIndex);
+            changePlayToPause();
+        }
+    }
+
+
+    private void skip() throws Exception {
+        if (currentSongIndex == playlists.getPlaylist(currentPlaylistIndex).getCount() - 1) {
+            changeSkipToError();
+        } else {
+            loadSongAndPlay(currentPlaylistIndex, ++currentSongIndex);
+            changePlayToPause();
+        }
+    }
+
+
+    private void nextPlaylist() throws Exception {
+        if (currentPlaylistIndex == playlists.getNumberOfPlaylists() - 1) {
+            GUI.getNextPlaylistButton().setText(null);
+            changeNextPlaylistToError();
+        } else {
+            currentSongIndex = 0;
+            loadSongAndPlay(++currentPlaylistIndex, currentSongIndex);
+            changePlayToPause();
+        }
+    }
+
+    private void changePlayToPause() {
+        try {
+            Image icon = ImageIO.read(View.class.getResource("icons/pause.png"));
+            GUI.getPlayButton().setIcon(new ImageIcon(icon));
+        } catch (IOException ex) {
+            System.out.println("icons/pause.png not found.");
+        }
+    }
+
+
+    private void changePauseToPlay() {
+        try {
+            Image icon = ImageIO.read(View.class.getResource("icons/play.png"));
+            GUI.getPlayButton().setIcon(new ImageIcon(icon));
+        } catch (IOException ex) {
+            System.out.println("icons/play.png not found.");
+        }
+    }
+
+
+    private void changePrevPlaylistToError() {
+        try {
+            Image icon = ImageIO.read(View.class.getResource("icons/error.png"));
+            GUI.getPrevPlaylistButton().setIcon(new ImageIcon(icon));
+        } catch (IOException ex) {
+            System.out.println("icons/error.png not found.");
+        }
+    }
+
+
+    private void changeBackToError() {
+        try {
+            Image icon = ImageIO.read(View.class.getResource("icons/error.png"));
+            GUI.getBackButton().setIcon(new ImageIcon(icon));
+        } catch (IOException ex) {
+            System.out.println("icons/error.png not found");
+        }
+    }
+
+
+    private void changeSkipToError() {
+        try {
+            Image icon = ImageIO.read(View.class.getResource("icons/error.png"));
+            GUI.getSkipButton().setIcon(new ImageIcon(icon));
+        } catch (IOException ex) {
+            System.out.println("icons/error.png not found.");
+        }
+    }
+
+
+    private void changeNextPlaylistToError() {
+        try {
+            Image icon = ImageIO.read(View.class.getResource("icons/error.png"));
+            GUI.getNextPlaylistButton().setIcon(new ImageIcon(icon));
+        } catch (IOException ex) {
+            System.out.println("icons/error.png not found.");
+        }
+    }
+
+
+    private void resetIcons() {
+        try {
+            Image icon = ImageIO.read(View.class.getResource("icons/prev.png"));
+            GUI.getBackButton().setIcon(new ImageIcon(icon));
+        } catch (IOException ex) {
+            System.out.println("icons/prev.png not found");
+        }
+
+        try {
+            Image icon = ImageIO.read(View.class.getResource("icons/next.png"));
+            GUI.getSkipButton().setIcon(new ImageIcon(icon));
+        } catch (IOException ex) {
+            System.out.println("icons/next.png not found");
+        }
+
+        GUI.getPrevPlaylistButton().setIcon(null);
+        GUI.getPrevPlaylistButton().setText("PP");
+
+        GUI.getNextPlaylistButton().setIcon(null);
+        GUI.getNextPlaylistButton().setText("NP");
+    }
+
+
+    @Override
+    public void stateChanged(ChangeEvent e) {
+
+      (player.getGainControl()).setLevel((float)GUI.getVolumeSlider().getValue() / 150.0f);
     }
 }
