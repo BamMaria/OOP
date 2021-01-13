@@ -8,7 +8,7 @@ public class SerializePerson implements Serializable {
         objectOutputStream.writeObject(o);
         objectOutputStream.flush();
     }
-
+/*
     public static void main(String[] args) {
         try {
             serialize(new ByteArrayOutputStream(), new Person("Maria", "hey", 312));
@@ -16,4 +16,6 @@ public class SerializePerson implements Serializable {
             e.printStackTrace();
         }
     }
+
+ */
 }
