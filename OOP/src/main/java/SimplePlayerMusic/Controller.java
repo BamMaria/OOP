@@ -17,28 +17,26 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 public class Controller implements ActionListener, ChangeListener {
-    //private Player player;
-    private PlaylistsContainer playlists;
-    private View GUI;
+    private MusicPlayer musicPlayer;
+    private final PlaylistsContainer playlists;
+    private final View GUI;
 
     private int currentPlaylistIndex;
     private int currentSongIndex;
     private boolean isItPlaying;        // flag to change play icon to pause and vice versa
 
-    /**
-     * Default constructor. Loads the first song in the playlist (on top of the multiple initializations of the class members).
-     */
+
     public Controller() throws Exception {
         this.playlists = new PlaylistsContainer();
         this.GUI = new View();
 
-        addActionListeners();
+        //addActionListeners();
 
-        loadSongsIntoPlaylist("anime_playlist1");
+        //loadSongsIntoPlaylist("anime_playlist1");
         loadSongsIntoPlaylist("blackbear");
 
         // volume slider change listener
-        GUI.getVolumeSlider().addChangeListener(this);
+//        GUI.getVolumeSlider().addChangeListener(this);
 
         // loads the first song of the first playlist
         currentPlaylistIndex = 0;
@@ -50,10 +48,10 @@ public class Controller implements ActionListener, ChangeListener {
 
     private void loadSongsIntoPlaylist(String playlistName) throws Exception {
         URL path = Controller.class.getResource("playlists/" + playlistName + ".txt");
-        File file = new File(path.getFile());
+       // File file = new File(path.getFile());
         playlists.add(new Playlist());
         // right parameter <= index of the song that was just added
-        playlists.loadSongs(file, playlists.getNumberOfPlaylists() - 1);
+      //  playlists.loadSongs(file, playlists.getNumberOfPlaylists() - 1);
     }
 
     /**
@@ -76,16 +74,14 @@ public class Controller implements ActionListener, ChangeListener {
     }
 
     private void addActionListeners() {
-        GUI.getPrevPlaylistButton().addActionListener(this);
+//        GUI.getPrevPlaylistButton().addActionListener(this);
         GUI.getBackButton().addActionListener(this);
         GUI.getPlayButton().addActionListener(this);
         GUI.getSkipButton().addActionListener(this);
         GUI.getNextPlaylistButton().addActionListener(this);
     }
 
-    /**
-     * Checks if a button is clicked, and executes the appropriate method.
-     */
+
     @Override
     public void actionPerformed(ActionEvent e) {
         resetIcons();
@@ -279,10 +275,7 @@ public class Controller implements ActionListener, ChangeListener {
         }
     }
 
-    /**
-     * Resets the prevPlaylist, skip, back, and nextPlaylist, button icons.
-     * This is used when one of the buttons have an error icon.
-     */
+
     private void resetIcons() {
         try {
             Image icon = ImageIO.read(View.class.getResource("icons/prev.png"));
@@ -311,6 +304,6 @@ public class Controller implements ActionListener, ChangeListener {
     @Override
     public void stateChanged(ChangeEvent e) {
 
-      //  (player.getGainControl()).setLevel((float)GUI.getVolumeSlider().getValue() / 150.0f);
+        //(musicPlayer.getGainControl()).setLevel((float)GUI.getVolumeSlider().getValue() / 150.0f);
     }
 }

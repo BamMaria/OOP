@@ -23,18 +23,19 @@ public class View extends JFrame {
         grid = new GridLayout(0, 6);
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        addComponentsToPane(getContentPane());
+        //addComponentsToPane(getContentPane());
         pack();
         setVisible(true);
         setResizable(false);
     }
+
 
     private void addComponentsToPane(final Container pane) {
         final JPanel panel = new JPanel();
         panel.setLayout(grid);
         panel.setPreferredSize(new Dimension(500, 75));
 
-        initializeComponents();
+        //initializeComponents();
 
         panel.add(prevPlaylistButton);
         panel.add(backButton);
@@ -47,7 +48,7 @@ public class View extends JFrame {
     }
 
     private void initializeComponents() {
-        // any way to do this in a cleaner fashion? TODO
+
 
         backButton = new JButton();
         playButton = new JButton();
@@ -56,7 +57,7 @@ public class View extends JFrame {
         nextPlaylistButton = new JButton("NP");
         volumeSlider = new JSlider();
 
-        addIcon(backButton, "icons/prev.png");
+        //addIcon(backButton, "icons/prev.png");
         addIcon(playButton, "icons/play.png");
         addIcon(skipButton, "icons/next.png");
 
@@ -71,7 +72,7 @@ public class View extends JFrame {
     private void addIcon(JButton button, String iconPath) {
         try {
             Image icon = ImageIO.read(View.class.getResource(iconPath));
-            button.setIcon(new ImageIcon(icon));
+           button.setIcon(new ImageIcon(icon));
         } catch (IOException ex) {
             System.out.println(iconPath + " not found.");
         }
