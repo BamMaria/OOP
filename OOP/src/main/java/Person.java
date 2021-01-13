@@ -1,5 +1,7 @@
+import java.io.Serializable;
 
-public class Person {
+public class Person implements Serializable {
+
     private String firstName;
     private String lastName;
     private int passportId;
@@ -75,17 +77,6 @@ public class Person {
         return person.toString();
     }
 
-    public static void main(String[] args) {
-        Person person1 = new Person();
-        person1.setFirstName("Maria");
-        person1.setLastName("Bamburova");
-        person1.setPassportId(3463473);
-        Person person2 = new Person();
-        person2.setFirstName("Sergei ");
-        person2.setLastName("Bamburov");
-        person2.setPassportId(1254135);
-        System.out.println(person1.toString());
 
-    }
 }
 
