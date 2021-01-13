@@ -12,4 +12,6 @@ public class IntGeneratorImplTest {
         assertEquals(testFunc.nextInt(), 2, 0.0001);
         assertEquals(testFunc.nextInt(), 3, 0.0001);
     }
+
+
 }
