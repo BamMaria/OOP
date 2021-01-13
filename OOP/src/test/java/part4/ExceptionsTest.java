@@ -12,9 +12,20 @@ public class ExceptionsTest {
         assertEquals(exceptionsClass.StringMassif(new String[]{"Hello","World"},2),new char[]{'l','r'});
         assertEquals(exceptionsClass.StringMassif(new String[]{"облако","йод","груша"},2),new char[]{'л','д','у'});
 
-        assertThrows(NullPointerException.class,()->{
-            exceptionsClass.StringMassif(new String[3],1);
+        assertThrows(NullPointerException.class, () -> {
+            exceptionsClass.StringMassif(new String[3], 1);
+        });
+    }
+
+    @Test
+    public void testStringsParts() {
+        assertEquals(exceptionsClass.StringsParts(new String[]{"Привет", "облако"}, 1, 2), 'л');
+
+        assertThrows(ArrayIndexOutOfBoundsException.class, () -> {
+            exceptionsClass.StringsParts(new String[]{"hey", "hay"}, 2, 1);
+        });
+        assertThrows(StringIndexOutOfBoundsException.class, () -> {
+            exceptionsClass.StringsParts(new String[]{"hey", "hay"}, 1, 3);
         });
     }
 }
-
