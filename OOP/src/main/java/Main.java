@@ -6,7 +6,7 @@ public class Main {
         Person Sergey = new Person("Сергей","Бамбуров",1);
         Person Elena = new Person ("Елена","Степаненко");
 
-        Maria.setFrstName("Masha");
+        Maria.setFirstName("Masha");
         Maria.setLastName("Bamburova");
         Maria.setPassportId(2);
        /* Point tochka = new Point (4,5,2);

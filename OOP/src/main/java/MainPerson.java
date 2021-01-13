@@ -1,21 +1,22 @@
 public class MainPerson {
-    private static Person firstHuman = new Person();
-    private static Person secondHuman = new Person();
-    private static Person thirdHuman = new Person();
+    private static Person person1 = new Person();
+    private static Person person2 = new Person();
+    private static Person person3 = new Person();
+
 
     public static void main(String[] args) {
-        firstHuman.setFrstName("Алексей");
-        firstHuman.setLastName("Иванов");
-        firstHuman.setPassportId(44454);
-        secondHuman.setFrstName("Наташа");
-        secondHuman.setLastName("Степанова");
-        secondHuman.setPassportId(45434);
-        thirdHuman.setFrstName("Михаил");
-        thirdHuman.setLastName("Булгаков");
-        thirdHuman.setPassportId(1917624);
-        System.out.println(firstHuman.getFrstName() + " " + firstHuman.getLastName() + ", passport ID: " + firstHuman.getPassportId());
-        System.out.println(secondHuman.getFrstName() + " " + secondHuman.getLastName() + ", passport ID: " + secondHuman.getPassportId());
-        System.out.println(thirdHuman.getFrstName() + " " + thirdHuman.getLastName() + ", passport ID: " + thirdHuman.getPassportId());
+        person1.setFirstName("Алексей");
+        person1.setLastName("Иванов");
+        person1.setPassportId(44454);
+        person2.setFirstName("Наташа");
+        person2.setLastName("Степанова");
+        person2.setPassportId(45434);
+        person3.setFirstName("Михаил");
+        person3.setLastName("Булгаков");
+        person3.setPassportId(1917624);
+        System.out.println(person1.getFirstName() + " " + person1.getLastName() + ", passport ID: " + person1.getPassportId());
+        System.out.println(person2.getFirstName() + " " + person2.getLastName() + ", passport ID: " + person2.getPassportId());
+        System.out.println(person3.getFirstName() + " " + person3.getLastName() + ", passport ID: " + person3.getPassportId());
     }
 }
 
